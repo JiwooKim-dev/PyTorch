@@ -1,0 +1,4 @@
+# Overfitting 방지하기 위해 Dropout : 레이어의 노드를 선택적으로 사용
+
+# Train : model.train() (dropout=True라는 뜻)
+# Test : model.eval() (dropout=False라는 뜻)
