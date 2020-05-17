@@ -1,0 +1,28 @@
+Convolution
+: 이미지 위에서 filter(=kernel)를 stride만큼 이동시키면서겹쳐지는 부분의 곱의 합을 구하는 연산
+
+* padding : 이미지 상하좌우에 띠를 둘러줌 (zero-padding : 0으로 채움)
+
+★ 크게 filter를 만들고 input을 통과시켜 output을 통과시켜주는 틀
+conv(사실상 filter) = torch.nn.Conv2d(in_channels, out_channels, kernel_size)
+outputs = conv(inputs)
+
+
+1) Size
+
+이 때 input은
+type : torch.Tensor
+shape : N(batch_size) X C(channel) X H(height) X W(width)
+
+이 때 
+output size = (input_size - filter_size + 2 * padding) / stride + 1
+
+filter 통과 값 : Perceptron + bias
+
+
+2) Pooling
+
+* Max pooling : 각 size 단위 안에서 최댓값 추출
+* Average pooling : 각 size 단위 안에서 평균 추출
+
+pool = torch.nn.MaxPool2d(kernel_size, stride, padding)
